@@ -3,6 +3,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
+import ProductsPage from "./pages/ProductsPage";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route element={<MainLayout />}>
             <Route index element={<HomePage />} />
+            <Route path="products" element={<ProductsPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
