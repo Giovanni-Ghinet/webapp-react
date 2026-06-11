@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function HomePage() {
   return (
     <main>
@@ -21,9 +23,7 @@ function HomePage() {
                 in un piccolo bottino piratesco.
               </p>
 
-              <a href="#menu" className="btn btn-warning fw-bold">
-                Scopri il menù
-              </a>
+              <Link to="/products" className="btn btn-warning fw-bold">Scopri il menù</Link>
             </div>
 
             <div className="col-12">
