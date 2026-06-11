@@ -28,7 +28,7 @@ function HomePage() {
 
             <div className="col-12">
               <img
-                src="/hero-cozzaro.png"
+                src="/img/hero-cozzaro.png"
                 alt="Tre piatti di cozze in stile piratesco"
                 className="img-fluid rounded"
               />
