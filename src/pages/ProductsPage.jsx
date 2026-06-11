@@ -30,10 +30,14 @@ function ProductList() {
 
   return (
     <ul>
-      {products.map(product => (
+      {products.map(product => (<>
         <li key={product.id}>
             {product.image} - {product.price} € - {product.description} - {product.name} - {product.country}
         </li>
+        <div>
+          <img src={product.image} alt={product.name} />
+        </div>
+        </>
       ))}
     </ul>
   );
