@@ -1,12 +1,13 @@
-/*
-  Stile generale del progetto
-  ===========================
+/*=======navbar style=========*/
+.img-logo {
+  width: 10%;
+}
 
-  Questo file contiene gli stili globali dell'applicazione, cioè le regole
-  CSS che si applicano a tutta l'app (reset, tipografia di base, variabili,
-  utility personalizzate, ecc.).
+.nav-color {
+  background-color: #2BE7A0;
+}
 
-  Viene importato una sola volta in `src/main.jsx` e ha effetto su tutti i
-  componenti. Per stili specifici di un singolo componente è preferibile
-  usare un CSS Module (es. `NomeComponente.module.css`).
-*/
+/*footer syle*/
+.footer-color {
+  background-color: #2BE7A0;
+}
