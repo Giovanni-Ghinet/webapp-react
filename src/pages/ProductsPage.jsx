@@ -32,8 +32,13 @@ function ProductList() {
     <ul>
       {products.map(product => (
         <li key={product.id}>
-            {product.image} - {product.price} € - {product.description} - {product.name} - {product.country}
-        </li> 
+            <div>
+                <div>
+                    <img className="img-fluid w-50" src={product.image} alt={product.name} />
+                </div>
+                
+            </div> - {product.price} € - {product.description} - {product.name} - {product.country}
+        </li>
       ))}
     </ul>
   );
