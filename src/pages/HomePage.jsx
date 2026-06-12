@@ -39,22 +39,22 @@ function HomePage() {
         <div className="container">
           <div className="row align-items-center g-4">
             <div className="col-12">
-              <p className="text-uppercase fw-bold mb-2">
+              <p className="text-uppercase fw-bold mb-2 text-v-color font-instrument">
                 Taverna piratesca di mare
               </p>
 
-              <h1 className="display-4 fw-bold mb-4 font-pirata">
-                Il Cozzaro Nero
+              <h1 className="display-4 fw-bold mb-4 font-pirata text-v-color">
+                IL Cozzaro Nero
               </h1>
 
-              <p className="lead mb-4">
+              <p className="lead mb-4 text-v-color font-newsreader">
                 Salpa verso una taverna di mare dove le cozze non sono un semplice piatto,
                 ma una leggenda da assaggiare. Ricette goliardiche, sapori decisi,
                 nomi maledetti e ingredienti da ciurma affamata trasformano ogni portata
                 in un piccolo bottino piratesco.
               </p>
 
-              <Link to="/products" className="btn btn-warning fw-bold">Scopri il menù</Link>
+              <Link to="/products" className="btn principal-color font-instrument fw-bold">Scopri il menù</Link>
             </div>
 
             <div className="col-12">
@@ -73,11 +73,11 @@ function HomePage() {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 col-lg-8 text-center">
-              <h2 className="fw-bold mb-3">
+              <h2 className="fw-bold mb-3 text-v-color font-instrument">
                 Chi siamo
               </h2>
 
-              <p className="lead mb-0">
+              <p className="lead mb-0 text-v-color font-newsreader">
                 Il Cozzaro Nero nasce come una taverna immaginaria per veri
                 amanti del mare: un posto dove ogni piatto racconta una storia,
                 tra pirati, leggende, bottini perduti e cozze cucinate in modi
@@ -93,17 +93,17 @@ function HomePage() {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 col-lg-8 text-center">
-              <h2 className="fw-bold mb-3">
+              <h2 className="fw-bold mb-3 text-v-color font-instrument">
                 Cosa vendiamo
               </h2>
 
-              <p className="lead mb-4">
+              <p className="lead mb-4 text-v-color font-newsreader">
                 Vendiamo piatti a base di cozze cucinate in tanti modi diversi:
                 al vapore, gratinate, piccanti, speziate, al vino, al rum e con
                 ingredienti ispirati al mondo piratesco.
               </p>
 
-              <p className="mb-0">
+              <p className="mb-0 text-v-color font-newsreader">
                 Ogni ricetta ha un nome unico, una personalità precisa e un sapore
                 pensato per distinguersi dal classico ristorante di mare. Qui le
                 cozze diventano protagoniste di piatti goliardici, creativi e
@@ -120,45 +120,45 @@ function HomePage() {
         <div className="container">
           <div className="row mb-3">
             <div className="col-12 text-center">
-              <h2 className="fw-bold mb-2">Ultimi piatti arrivati a bordo</h2>
-              <p className="lead mb-0">Le ultime creazioni preparate dalla nostra ciurma</p>
+              <h2 className="fw-bold mb-2 text-v-color font-instrument">Ultimi piatti arrivati a bordo</h2>
+              <p className="lead mb-0 text-v-color font-instrument">Le ultime creazioni preparate dalla nostra ciurma</p>
             </div>
           </div>
 
           <div className="row justify-content-center g-4">
             {isLoading && (
               <div className="col-12 text-center">
-                <p className="mb-0">Caricamento degli ultimi piatti...</p>
+                <p className="mb-0 text-v-color font-instrument">Caricamento degli ultimi piatti...</p>
               </div>
             )}
 
             {error && (
               <div className="col-12 text-center">
-                <p className="mb-0">Errore: {error}</p>
+                <p className="mb-0 text-v-color">Errore: {error}</p>
               </div>
             )}
 
             {!isLoading && !error && latestProducts.length === 0 && (
               <div className="col-12 text-center">
-                <p className="mb-0">Nessun piatto disponibile</p>
+                <p className="mb-0 text-v-color font-instrument">Nessun piatto disponibile</p>
               </div>
             )}
 
             {!isLoading && !error && latestProducts.map((product) => (
               <div className=" col-12 col-md-6 col-lg-4"
-              key={product.id}>
+                key={product.id}>
                 <article className="card">
-                  <img 
-                  src={product.image} 
-                  alt={product.name} 
-                  className="card-img-top"
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="card-img-top"
                   />
 
-                  <div className="card-body text-center">
+                  <div className="card-body text-center principal-color font-instrument">
                     <h3 className="h5 fw-bold mb-0">{product.name}</h3>
                   </div>
                 </article>
-                
+
               </div>
             ))}
           </div>
