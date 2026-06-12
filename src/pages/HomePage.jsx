@@ -12,7 +12,7 @@ function HomePage() {
                 Taverna piratesca di mare
               </p>
 
-              <h1 className="display-4 fw-bold mb-4">
+              <h1 className="display-4 fw-bold mb-4 font-pirata">
                 Il Cozzaro Nero
               </h1>
 
