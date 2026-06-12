@@ -1,6 +1,37 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function HomePage() {
+  const [latestProducts, setLatestProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+
+  useEffect(() => {
+    fetch("http://localhost:3000/products?latest=5")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Errore nella richiesta: ${response.status}`);
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        if (!data.result) {
+          throw new Error("Prodotti non disponibili");
+        }
+        console.log(data.result[0]);
+        setLatestProducts(data.result);
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
+
   return (
     <main>
       {/* HERO */}
@@ -82,8 +113,65 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ULTIMI PRODOTTI */}
+
+      <section className="py-3">
+        <div className="container">
+          <div className="row mb-3">
+            <div className="col-12 text-center">
+              <h2 className="fw-bold mb-2">Ultimi piatti arrivati a bordo</h2>
+              <p className="lead mb-0">Le ultime creazioni preparate dalla nostra ciurma</p>
+            </div>
+          </div>
+
+          <div className="row justify-content-center g-4">
+            {isLoading && (
+              <div className="col-12 text-center">
+                <p className="mb-0">Caricamento degli ultimi piatti...</p>
+              </div>
+            )}
+
+            {error && (
+              <div className="col-12 text-center">
+                <p className="mb-0">Errore: {error}</p>
+              </div>
+            )}
+
+            {!isLoading && !error && latestProducts.length === 0 && (
+              <div className="col-12 text-center">
+                <p className="mb-0">Nessun piatto disponibile</p>
+              </div>
+            )}
+
+            {!isLoading && !error && latestProducts.map((product) => (
+              <div className=" col-12 col-md-6 col-lg-4"
+              key={product.id}>
+                <article className="card">
+                  <img 
+                  src={product.image} 
+                  alt={product.name} 
+                  className="card-img-top"
+                  />
+
+                  <div className="card-body text-center">
+                    <h3 className="h5 fw-bold mb-0">{product.name}</h3>
+                  </div>
+                </article>
+                
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
 
+
+
+
 export default HomePage;
+
+
+//'http://localhost:3000/products?latest=5'
