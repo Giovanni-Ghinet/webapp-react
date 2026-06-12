@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -12,7 +13,7 @@ function ProductList() {
       if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
       const data = await response.json();
       console.log(data);
-      if (data.result ===null){
+      if (data.result === null){
         throw new Error('Nessun prodotto trovato');
       }
       setProducts(data.result);   
@@ -33,8 +34,9 @@ function ProductList() {
       <h1 className=" pb-4 text-center fw-bold text-accent font-pirata">Menù</h1>
       <div className="row g-4">
         {products.map(product => (
-          <div key={product.id} className="col-12 col-md-6 col-lg-4 d-flex">
-            <div className="card w-100 shadow border-0 h-100 bg-dark text-white overflow-hidden">
+          <div className="col-12 col-md-6 col-lg-4 d-flex" key={product.id}>
+          <Link to={`/products/${product.id}`} className="text-decoration-none text-white w-100">
+            <div className="card w-100 shadow border-0 h-100 bg-dark text-white product-card">
               <img 
                 src={product.image} 
                 className="card-img-top product-img-custom" 
@@ -42,11 +44,10 @@ function ProductList() {
               />
               <div className="card-body p-4 text-center d-flex flex-column">
                 <h5 className="card-title text-accent mb-3 font-pirata">{product.name}</h5>
-                <p className="card-text small mb-4">{product.description}</p>
-                <p className="mb-2 small"><strong>Provenienza:</strong> {product.country}</p>
                 <p className="fs-3 mt-auto text-accent font-pirata">{product.price} €</p>
               </div>
             </div>
+          </Link> 
           </div>
         ))}
       </div>
