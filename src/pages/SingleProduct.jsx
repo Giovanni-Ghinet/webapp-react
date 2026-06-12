@@ -62,8 +62,7 @@ function SingleProduct() {
             <img 
               src={product.image} 
               alt={product.name} 
-              className="img-fluid w-100 object-fit-cover"
-              style={{ maxHeight: '500px' }}
+              className="product-img-custom img-fluid"
             />
           </div>
         </div>
