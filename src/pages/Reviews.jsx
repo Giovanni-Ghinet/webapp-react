@@ -14,7 +14,7 @@ function Reviews() {
                 console.log(data);
                 
                 if (data.result === null) {
-                    throw new Error('Nessun prodotto trovato');
+                    throw new Error('Nessuna recensione trovata');
                 }
                 setReviews(data.result);
             } catch (err) {
