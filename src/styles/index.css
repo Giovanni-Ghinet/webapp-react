@@ -92,11 +92,6 @@
   transition: transform 0.3s ease-in-out;
 }
 
-
-.text-accent {
-  color: #2BE7A0 !important;
-
-
 .product-card:hover .card-body {
   transform: translateY(0);
 }
