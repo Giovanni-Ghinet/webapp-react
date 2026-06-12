@@ -27,10 +27,10 @@ function Header() {
                                 <NavLink className="nav-link" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/products">Products</NavLink>
+                                <NavLink className="nav-link" to="/products">Menù</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/review">Review</NavLink>
+                                <NavLink className="nav-link" to="/reviews">Reviews</NavLink>
                             </li>
                             <li className="nav-item ms-2">
                                 <button

@@ -25,22 +25,32 @@ function ProductList() {
   fetchProducts();
 }, []);
 
-  if (loading) return <div>Caricamento prodotti...</div>;
-  if (error) return <div>Errore: {error}</div>;
+  if (loading) return <div className="text-center py-5">Caricamento prodotti...</div>;
+  if (error) return <div className="alert alert-danger m-5 text-center">Errore: {error}</div>;
 
   return (
-    <ul>
-      {products.map(product => (
-        <li key={product.id}>
-            <div>
-                <div>
-                    <img className="img-fluid w-50" src={product.image} alt={product.name} />
-                </div>
-                
-            </div> - {product.price} € - {product.description} - {product.name} - {product.country}
-        </li>
-      ))}
-    </ul>
+    <div className="container py-3">
+      <h1 className=" pb-4 text-center fw-bold text-accent font-pirata">Menù</h1>
+      <div className="row g-4">
+        {products.map(product => (
+          <div key={product.id} className="col-12 col-md-6 col-lg-4 d-flex">
+            <div className="card w-100 shadow border-0 h-100 bg-dark text-white overflow-hidden">
+              <img 
+                src={product.image} 
+                className="card-img-top product-img-custom" 
+                alt={product.name} 
+              />
+              <div className="card-body p-4 text-center d-flex flex-column">
+                <h5 className="card-title text-accent mb-3 font-pirata">{product.name}</h5>
+                <p className="card-text small mb-4">{product.description}</p>
+                <p className="mb-2 small"><strong>Provenienza:</strong> {product.country}</p>
+                <p className="fs-3 mt-auto text-accent font-pirata">{product.price} €</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
