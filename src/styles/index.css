@@ -1,31 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
 
+
+/*================FONT===============*/
 .font-pirata {
   font-family: "Pirata One", system-ui, sans-serif;
 }
 
+.font-instrument {
+  font-family: "Instrument Serif", serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/*====================================*/
+
+
+
+
+/*============ COLORI SFONDI==================*/
+/*COLORE VERDE SFONDO*/
+.principal-color {
+  background-color: #2BE7A0;
+}
+
+/*COLORE NERO SFONDO*/
+.secondary-color {
+  background-color: #1E1E1E;
+}
+
+/*======================================*/
+
+
+
+/*============ COLORI TESTO==================*/
+/*COLORE VERDE TESTO*/
+.text-v-color {
+  color: #2BE7A0;
+}
+
+/*COLORE NERO TESTO*/
+.text-b-color {
+  color: #1E1E1E;
+}
+
+/*======================================*/
+
+
+
+
+
 /*=======navbar style=========*/
 .img-logo {
-  width: 10%;
-
+  width: 20%;
 }
 
-.nav-color {
-  background-color: #2BE7A0;
-}
-/*=======navbar style=========*/
-.img-logo {
-  width: 10%;
+/* FOOTER STYLE */
+
+.footer-link {
+  font-family: "Instrument Serif", serif;
+  color: #1E1E1E;
+  text-decoration: none;
 }
 
-.nav-color {
-  background-color: #2BE7A0;
-}
 
-/*footer syle*/
-.footer-color {
-  background-color: #2BE7A0;
-}
+
+
 
 /* Stili personalizzati per i prodotti */
 
@@ -36,5 +76,6 @@
 }
 
 .text-accent {
-  color: #2BE7A0 !important; /* Il nuovo colore verde acqua */
+  color: #2BE7A0 !important;
+
 }
