@@ -36,7 +36,7 @@ function ProductList() {
         {products.map(product => (
           <div className="col-12 col-md-6 col-lg-4 d-flex" key={product.id}>
           <Link to={`/products/${product.id}`} className="text-decoration-none text-white w-100">
-            <div className="card w-100 shadow border-0 h-100 bg-dark text-white overflow-hidden">
+            <div className="card w-100 shadow border-0 h-100 bg-dark text-white product-card">
               <img 
                 src={product.image} 
                 className="card-img-top product-img-custom" 
