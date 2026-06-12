@@ -73,14 +73,14 @@ function SingleProduct() {
           
           <div className="d-flex align-items-center gap-3 mb-4">
             <span className="fs-2 fw-bold text-accent">{product.price} €</span>
-            <span className="badge bg-warning text-dark fs-6">
+            <span className="badge star-button text-dark fs-6">
               ★ {averageRating} / 5.0
             </span>
           </div>
 
           <p className="lead mb-5">{product.description || "Una prelibatezza dei sette mari, preparata con ingredienti freschi e un pizzico di mistero piratesco."}</p>
           
-          <button className="btn btn-warning btn-lg px-5 fw-bold">ORDINA ORA</button>
+          <button className="btn style-button btn-lg px-5 fw-bold">ORDINA ORA</button>
         </div>
       </div>
 
