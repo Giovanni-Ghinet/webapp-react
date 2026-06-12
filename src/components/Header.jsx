@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 
 
 function Header() {
-    
+
 
     return (
-        <header>
-            <nav className="navbar navbar-expand-lg border-bottom principal-color">
+        <header className="fixed-top custom-header">
+            <nav className="navbar navbar-expand-lg border-bottom principal-color custom-navbar">
                 <div className="container">
                     <div className="d-flex justify-content-between align-items-center w-100">
                         <NavLink className="navbar-brand fw-semibold" to="/">
@@ -24,13 +24,13 @@ function Header() {
                     <div className="collapse navbar-collapse" id="mainNav">
                         <ul className="navbar-nav ms-auto align-items-center">
                             <li className="nav-item">
-                                <NavLink className="nav-link font-instrument" to="/">Home</NavLink>
+                                <NavLink className="nav-link font-size font-instrument" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link font-instrument" to="/products">Menù</NavLink>
+                                <NavLink className="nav-link font-size font-instrument" to="/products">Menù</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link font-instrument" to="/reviews">Reviews</NavLink>
+                                <NavLink className="nav-link font-size font-instrument" to="/reviews">Recensioni</NavLink>
                             </li>
                         </ul>
                     </div>
