@@ -6,7 +6,7 @@ function Header() {
 
     return (
         <header>
-            <nav className="navbar navbar-expand-lg border-bottom nav-color">
+            <nav className="navbar navbar-expand-lg border-bottom principal-color">
                 <div className="container">
                     <div className="d-flex justify-content-between align-items-center w-100">
                         <NavLink className="navbar-brand fw-semibold" to="/">
@@ -24,13 +24,13 @@ function Header() {
                     <div className="collapse navbar-collapse" id="mainNav">
                         <ul className="navbar-nav ms-auto align-items-center">
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/">Home</NavLink>
+                                <NavLink className="nav-link font-instrument" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/products">Menù</NavLink>
+                                <NavLink className="nav-link font-instrument" to="/products">Menù</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/reviews">Reviews</NavLink>
+                                <NavLink className="nav-link font-instrument" to="/reviews">Reviews</NavLink>
                             </li>
                             <li className="nav-item ms-2">
                                 <button

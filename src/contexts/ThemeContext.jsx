@@ -6,7 +6,8 @@ function ThemeProvider({ children }) {
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
-        document.documentElement.setAttribute('data-bs-theme', theme);
+        document.documentElement.classList.remove("light", "dark");
+        document.documentElement.classList.add(theme);  /*document.documentElement.setAttribute('data-bs-theme', theme);*/
     }, [theme]);
 
     const toggleTheme = () => {
