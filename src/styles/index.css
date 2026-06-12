@@ -67,6 +67,10 @@
 
 
 /* Stili personalizzati per i prodotti */
+.product-img-custom {
+  aspect-ratio: 5 / 8;
+  height: 100%;
+ 
 
 .text-accent {
   color: #2BE7A0 !important;
@@ -95,6 +99,7 @@
 .product-card:hover .card-body {
   transform: translateY(0);
 }
+
 
 .product-img-custom {
   height: 100%;
