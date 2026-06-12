@@ -145,20 +145,29 @@ function HomePage() {
             )}
 
             {!isLoading && !error && latestProducts.map((product) => (
-              <div className=" col-12 col-md-6 col-lg-4"
-                key={product.id}>
-                <article className="card">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="card-img-top"
-                  />
 
-                  <div className="card-body text-center principal-color font-instrument">
-                    <h3 className="h5 fw-bold mb-0">{product.name}</h3>
-                  </div>
-                </article>
+              <div
+                className="col-12 col-md-6 col-lg-4 d-flex"
+                key={product.id}
+              >
+                <Link
+                  to={`/products/${product.id}`}
+                  className="text-decoration-none text-white w-100"
+                >
+                  <article className="card w-100 shadow border-0 h-100 bg-dark text-white product-card">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="card-img-top product-img-custom"
+                    />
 
+                    <div className="card-body p-4 text-center d-flex flex-column principal-color font-instrument">
+                      <h3 className="card-title text-accent mb-0 font-pirata">
+                        {product.name}
+                      </h3>
+                    </div>
+                  </article>
+                </Link>
               </div>
             ))}
           </div>

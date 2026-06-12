@@ -131,4 +131,15 @@ body {
 .product-card:hover .product-img-custom {
   transform: scale(1.05);
 
+
 }
+}
+
+.style-button {
+background-color: #2BE7A0;
+}
+
+.star-button {
+  background-color: #2BE7A0;
+}
+
