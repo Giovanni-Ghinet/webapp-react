@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import useTheme from "../hooks/useTheme";
+
 
 function Header() {
-    const { theme, toggleTheme } = useTheme();
+    
 
     return (
         <header>
@@ -31,15 +31,6 @@ function Header() {
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link font-instrument" to="/reviews">Reviews</NavLink>
-                            </li>
-                            <li className="nav-item ms-2">
-                                <button
-                                    className="btn btn-outline-secondary btn-sm"
-                                    onClick={toggleTheme}
-                                    aria-label="Cambia tema"
-                                >
-                                    {theme === 'light' ? '🌙' : '☀️'}
-                                </button>
                             </li>
                         </ul>
                     </div>

@@ -62,7 +62,7 @@ function SingleProduct() {
             <img 
               src={product.image} 
               alt={product.name} 
-              className="product-img-custom img-fluid"
+              className="product-img-custom-single img-fluid"
             />
           </div>
         </div>
