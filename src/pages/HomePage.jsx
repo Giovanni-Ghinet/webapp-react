@@ -42,12 +42,13 @@ function HomePage() {
               <p className="text-uppercase fw-bold mb-2 text-v-color font-instrument">
                 Taverna piratesca di mare
               </p>
+              <div className="container-titolo">
+                <h1 className="display-4 fw-bold mb-4 font-pirata text-v-color titolo-principale">
+                  IL Cozzaro Nero
+                </h1>
+              </div>
 
-              <h1 className="display-4 fw-bold mb-4 font-pirata text-v-color">
-                IL Cozzaro Nero
-              </h1>
-
-              <p className="lead mb-4 text-v-color font-newsreader">
+              <p className="lead mb-4 fw-bold text-v-color font-newsreader">
                 Salpa verso una taverna di mare dove le cozze non sono un semplice piatto,
                 ma una leggenda da assaggiare. Ricette goliardiche, sapori decisi,
                 nomi maledetti e ingredienti da ciurma affamata trasformano ogni portata
@@ -59,7 +60,7 @@ function HomePage() {
 
             <div className="col-12">
               <img
-                src="/img/hero-cozzaro.png"
+                src="/img/hero-cozzaro-2.png"
                 alt="Tre piatti di cozze in stile piratesco"
                 className="img-fluid rounded"
               />
@@ -158,7 +159,7 @@ function HomePage() {
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="card-img-top product-img-custom"
+                      className="card-img-top product-img-custom-single"
                     />
 
                     <div className="card-body p-4 text-center d-flex flex-column principal-color font-instrument">

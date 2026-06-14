@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer className="border-top py-3 mt-auto principal-color">
+        <footer className="border-top py-3 mt-auto principal-color footer-container">
             <div className="container text-md-center text-sm-center text-xs-center">
                 <div className="row">
                     <div className="col-4">
