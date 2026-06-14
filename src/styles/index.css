@@ -3,8 +3,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
 
 body {
-  background-color: #1E1E1E;
-  padding-top: 200px
+  /* background-color: hsl(0, 0%, 12%); */
+  background-image: url("/img/sfondo-home-page.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  min-height: 100vh;
+
 }
 
 /*================FONT===============*/
@@ -64,7 +71,7 @@ body {
 
 /*  NAVBAR STYLE */
 .img-logo {
-  width: 10%;
+  width: 17%;
 }
 
 
@@ -74,7 +81,14 @@ body {
 
 }
 
+
+
 /* FOOTER STYLE */
+.footer-container {
+  border-top: 10px solid #1f1e1ebf !important;
+  border-radius: 30px 30px 0px 0px;
+
+}
 
 .img-logo-footer {
   width: 75%;
@@ -85,6 +99,25 @@ body {
   color: #1E1E1E;
   text-decoration: none;
 }
+
+
+/* HOME PAGE STYLE */
+.titolo-principale {
+  font-size: 80px;
+
+
+}
+
+/* .container-titolo {
+  border-top: 5px solid #1f1e1ebf !important;
+  border-bottom: 5px solid #1f1e1ebf !important;
+  border-left: 5px solid #1f1e1ebf !important;
+  border-right: 5px solid #1f1e1ebf !important;
+  background-color: #2BE7A0;
+  border-radius: 0px 30px 0px 30px;
+  width: 50%;
+} */
+
 
 
 /* Stili personalizzati per i prodotti */
@@ -113,7 +146,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 100%);
   backdrop-filter: blur(3px);
   opacity: 0;
   visibility: hidden;
@@ -163,8 +196,14 @@ body {
 }
 
 .slider-item {
+
   transition: transform 0.3s ease;
   align-items: stretch;
+
+  flex: 0 0 25%;
+  /* 4 elementi = 100/4 */
+  padding: 0 10px;
+
 }
 
 
@@ -179,8 +218,14 @@ body {
   background-color: transparent;
   border: none;
   color: #000000;
+
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Ombra per rendere visibile il nero su scuro */
   font-size: 3rem;
+
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  /* Ombra per rendere visibile il nero su scuro */
+  font-size: 3.5rem;
+
   transition: all 0.2s ease;
   cursor: pointer;
 }
@@ -192,13 +237,16 @@ body {
 
 
 .style-button {
-background-color: #2BE7A0;
+  background-color: #2BE7A0;
 }
 
 .star-button {
   background-color: #2BE7A0;
+
 }
 
 .flip-horizontal {
   transform: scaleX(-1);
 }
+
+

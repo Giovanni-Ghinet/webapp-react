@@ -6,8 +6,8 @@ function MainLayout() {
     return (
         <>
             <Header />
-            <div>
-                <main className="container  my-4">
+            <div className="home-page-bg">
+                <main className="">
                     <Outlet />
                 </main>
             </div>

@@ -5,12 +5,12 @@ function Header() {
 
 
     return (
-        <header className="fixed-top custom-header">
+        <header className="sticky-top custom-header">
             <nav className="navbar navbar-expand-lg border-bottom principal-color custom-navbar">
                 <div className="container">
                     <div className="d-flex justify-content-between align-items-center w-100">
                         <NavLink className="navbar-brand fw-semibold" to="/">
-                            <img className="img-logo" src="/img/img_cozzaro_nero_logo.png" alt="/home" />
+                            <img className="img-logo img-fluid" src="/img/img_cozzaro_nero_logo.png" alt="/home" />
                         </NavLink>
                         <button
                             className="navbar-toggler"
