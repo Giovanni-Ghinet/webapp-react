@@ -6,6 +6,7 @@ import ProductsPage from "./pages/ProductsPage";
 import Reviews from "./pages/Reviews";
 import SingleProduct from "./pages/SingleProduct";
 import ScrollToTop from "./components/ScrollToTop";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="products" element={<ProductsPage />} />
           <Route path="products/:id" element={<SingleProduct />} />
           <Route path="reviews" element={<Reviews />} />
+          <Route path="chi-siamo" element={<AboutPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
