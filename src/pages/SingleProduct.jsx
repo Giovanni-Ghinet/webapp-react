@@ -78,7 +78,7 @@ function SingleProduct() {
             </span>
           </div>
 
-          <p className="lead mb-5">{product.description || "Una prelibatezza dei sette mari, preparata con ingredienti freschi e un pizzico di mistero piratesco."}</p>
+          <p className="lead text-white mb-5">{product.description || "Una prelibatezza dei sette mari, preparata con ingredienti freschi e un pizzico di mistero piratesco."}</p>
           
           <button className="btn style-button btn-lg px-5 fw-bold">ORDINA ORA</button>
         </div>
