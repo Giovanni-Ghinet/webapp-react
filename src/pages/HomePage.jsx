@@ -39,16 +39,13 @@ function HomePage() {
         <div className="container">
           <div className="row align-items-center g-4">
             <div className="col-12">
-              <p className="text-uppercase fw-bold mb-2 text-v-color font-instrument">
-                Taverna piratesca di mare
-              </p>
               <div className="container-titolo">
-                <h1 className="display-4 fw-bold mb-4 font-pirata text-v-color titolo-principale">
+                <h1 className="display-4 fw-bold mb-4 font-pirata title-color titolo-principale">
                   IL Cozzaro Nero
                 </h1>
               </div>
 
-              <p className="lead mb-4 fw-bold text-v-color font-newsreader">
+              <p className="lead mb-4 fw-bold subtitle-color font-newsreader f-14">
                 Salpa verso una taverna di mare dove le cozze non sono un semplice piatto,
                 ma una leggenda da assaggiare. Ricette goliardiche, sapori decisi,
                 nomi maledetti e ingredienti da ciurma affamata trasformano ogni portata
@@ -78,7 +75,7 @@ function HomePage() {
                 Chi siamo
               </h2>
 
-              <p className="lead mb-0 text-v-color font-newsreader">
+              <p className="lead mb-0 description-color font-newsreader">
                 Il Cozzaro Nero nasce come una taverna immaginaria per veri
                 amanti del mare: un posto dove ogni piatto racconta una storia,
                 tra pirati, leggende, bottini perduti e cozze cucinate in modi
@@ -98,13 +95,13 @@ function HomePage() {
                 Cosa vendiamo
               </h2>
 
-              <p className="lead mb-4 text-v-color font-newsreader">
+              <p className="lead mb-4 description-color font-newsreader">
                 Vendiamo piatti a base di cozze cucinate in tanti modi diversi:
                 al vapore, gratinate, piccanti, speziate, al vino, al rum e con
                 ingredienti ispirati al mondo piratesco.
               </p>
 
-              <p className="mb-0 text-v-color font-newsreader">
+              <p className="mb-0 description-color font-newsreader">
                 Ogni ricetta ha un nome unico, una personalità precisa e un sapore
                 pensato per distinguersi dal classico ristorante di mare. Qui le
                 cozze diventano protagoniste di piatti goliardici, creativi e
@@ -122,7 +119,7 @@ function HomePage() {
           <div className="row mb-3">
             <div className="col-12 text-center">
               <h2 className="fw-bold mb-2 text-v-color font-instrument">Ultimi piatti arrivati a bordo</h2>
-              <p className="lead mb-0 text-v-color font-instrument">Le ultime creazioni preparate dalla nostra ciurma</p>
+              <p className="lead mb-0 description-color font-instrument">Le ultime creazioni preparate dalla nostra ciurma</p>
             </div>
           </div>
 

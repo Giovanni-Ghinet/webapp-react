@@ -31,7 +31,7 @@ function Reviews() {
 
     return (
         <div className="container py-3">
-            <h1 className="pb-4 text-center fw-bold text-accent">Recensioni</h1>
+            <h1 className="pb-4 text-center fw-bold review-color font-pirata">Recensioni</h1>
             <div className="row justify-content-center">
                 <div className="col-12 col-lg-10">
                     {reviews.map(review => (

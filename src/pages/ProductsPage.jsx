@@ -74,7 +74,7 @@ function ProductList() {
 
   return (
     <div className="container py-3">
-      <h1 className="pb-5 text-center fw-bold text-accent font-pirata display-3">Menù della Taverna</h1>
+      <h1 className="pb-5 text-center fw-bold menu-color font-pirata display-3">Menù della Taverna</h1>
 
       {/* Barra di Ricerca */}
       <div className="row justify-content-end mb-4">
