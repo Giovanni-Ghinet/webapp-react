@@ -211,6 +211,20 @@ body {
   color: #2BE7A0 !important;
   /* Il nuovo colore verde acqua */
 }
+/*CHI SIAMO*/
+.subtitle-green {
+  color: #2BE7A0;
+  text-shadow:
+    -2px -2px 0 #0b0b0b,
+    0 -2px 0 #0b0b0b,
+    2px -2px 0 #0b0b0b,
+    -2px 0 0 #0b0b0b,
+    2px 0 0 #0b0b0b,
+    -2px 2px 0 #0b0b0b,
+    0 2px 0 #0b0b0b,
+    2px 2px 0 #0b0b0b,
+    0 5px 8px rgba(0, 0, 0, 0.85);
+}
 
 /*hover immagine del menù*/
 

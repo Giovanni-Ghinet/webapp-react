@@ -75,12 +75,22 @@ function HomePage() {
                 Chi siamo
               </h2>
 
-              <p className="lead mb-0 description-color font-newsreader fw-bold">
-                Il Cozzaro Nero nasce come una taverna immaginaria per veri
-                amanti del mare: un posto dove ogni piatto racconta una storia,
-                tra pirati, leggende, bottini perduti e cozze cucinate in modi
-                sempre diversi.
+              <p className="lead mb-4 description-color font-newsreader fw-bold">
+                Dietro ogni piatto del Cozzaro Nero si nasconde una ciurma pronta
+                ad affrontare tempeste, mostri marini e marinai affamati.
               </p>
+
+              <p className="mb-4 description-color font-newsreader fw-bold">
+                La nostra ciurma è composta da Giovanni Paolo Ghinet, Marco Fiordi,
+                Sara Luongo, Maurizio Palmisano e Alessandro Tiberia.
+              </p>
+
+              <Link
+                to="/chi-siamo"
+                className="btn sabbia-color font-instrument fw-bold"
+              >
+                Conosci la ciurma
+              </Link>
             </div>
           </div>
         </div>
