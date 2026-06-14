@@ -88,7 +88,7 @@ function SingleProduct() {
       <div className="mt-5 pt-5 border-top border-secondary">
         <h3 className="font-pirata text-accent mb-4">Cosa ne pensa la ciurma</h3>
         <div className="row">
-          {reviews.slice(0, 3).map((review) => (
+          {reviews.slice(0, 5).map((review) => (
             <div key={review.id_review} className="col-12 col-md-4 mb-3">
               <div className="card h-100 bg-dark text-white border-secondary p-3 shadow-sm">
                 <div className="fw-bold text-accent mb-1">{review.title}</div>
