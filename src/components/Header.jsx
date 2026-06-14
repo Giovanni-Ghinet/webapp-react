@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
-
-
+import { GiSailboat } from "react-icons/gi";
+import { GiTreasureMap } from "react-icons/gi";
+import { GiOpenTreasureChest } from "react-icons/gi";
 function Header() {
 
 
@@ -9,8 +10,8 @@ function Header() {
             <nav className="navbar navbar-expand-lg border-bottom principal-color custom-navbar">
                 <div className="container">
                     <div className="d-flex justify-content-between align-items-center w-100">
-                        <NavLink className="navbar-brand fw-semibold" to="/">
-                            <img className="img-logo img-fluid" src="/img/img_cozzaro_nero_logo.png" alt="/home" />
+                        <NavLink className="navbar-brand fw-semibold">
+                            <img className="img-logo img-fluid" src="/img/img_cozzaro_nero_logo.png" />
                         </NavLink>
                         <button
                             className="navbar-toggler"
@@ -23,15 +24,19 @@ function Header() {
                     </div>
                     <div className="collapse navbar-collapse" id="mainNav">
                         <ul className="navbar-nav ms-auto align-items-center">
+                            <GiSailboat />
                             <li className="nav-item">
-                                <NavLink className="nav-link font-size font-instrument" to="/">Home</NavLink>
+                                <NavLink className="nav-link font-size font-instrument" to="/">Home </NavLink>
                             </li>
+                            <GiTreasureMap />
                             <li className="nav-item">
                                 <NavLink className="nav-link font-size font-instrument" to="/products">Menù</NavLink>
                             </li>
+                            <GiOpenTreasureChest />
                             <li className="nav-item">
                                 <NavLink className="nav-link font-size font-instrument" to="/reviews">Recensioni</NavLink>
                             </li>
+
                         </ul>
                     </div>
                 </div>

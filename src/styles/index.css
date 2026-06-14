@@ -41,6 +41,11 @@ body {
   background-color: #1E1E1E;
 }
 
+.sabbia-color {
+  background-color: #f4c66a;
+  ;
+}
+
 /*======================================*/
 
 
@@ -121,7 +126,7 @@ body {
     0 5px 8px rgba(0, 0, 0, 0.85);
 }
 
-.review-color{
+.review-color {
   color: #f4c66a;
   font-size: 4.5rem !important;
 
@@ -136,6 +141,7 @@ body {
     2px 2px 0 #0b0b0b,
     0 5px 8px rgba(0, 0, 0, 0.85);
 }
+
 /* DIMENSIONE TESTO */
 .font-size {
   font-size: 25px;
