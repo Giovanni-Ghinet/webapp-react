@@ -9,6 +9,7 @@ function ProductList() {
   const [error, setError] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
+  const [category, setCategory] = useState('');
 
   const [visibleItems, setVisibleItems] = useState(4);
 
@@ -47,15 +48,20 @@ function ProductList() {
 
   useEffect(() => {
   const fetchProducts = async () => {
+    setLoading(true);
     try {
       // Aggiungiamo il parametro di ricerca all'URL se presente
-      const url = searchTerm 
-        ? `http://localhost:3000/products?search=${searchTerm}` 
-        : 'http://localhost:3000/products';
+      let url = 'http://localhost:3000/products';
+      const params = [];
+      if (searchTerm) params.push(`search=${encodeURIComponent(searchTerm)}`);
+      if (category) params.push(`category=${encodeURIComponent(category)}`);
+      if (params.length) url += `?${params.join('&')}`;
         
+      console.log('Fetching products from:', url);
       const response = await fetch(url);
       if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
       const data = await response.json();
+      console.log('Products response:', data);
       
       setProducts(data.result || []);
       // Resettiamo l'indice dello slider quando cambiano i risultati
@@ -67,7 +73,7 @@ function ProductList() {
     }
   };
   fetchProducts();
-}, [searchTerm]);
+}, [searchTerm, category]);
 
   if (loading) return <div className="text-center py-5">Caricamento prodotti...</div>;
   if (error) return <div className="alert alert-danger m-5 text-center">Errore: {error}</div>;
@@ -77,8 +83,25 @@ function ProductList() {
       <h1 className="pb-5 text-center fw-bold menu-color font-pirata display-3">Menù della Taverna</h1>
 
       {/* Barra di Ricerca */}
-      <div className="row justify-content-end mb-4">
-        <div className="col-12 col-md-4 col-lg-3">
+      <div className="row justify-content-end align-items-center mb-4">
+        <div className="col-6 col-md-4 col-lg-3">
+          
+
+          <select
+            className="form-select bg-dark text-white border-secondary shadow-none "
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="">Tutte le categorie</option>
+            <option value="infuocato-del-mare-dei-ladri">Infuocato del Mare dei Ladri</option>
+            <option value="affumicato-dei-relitti">Affumicato dei Relitti</option>
+            <option value="abisso-del-kraken">Abisso del Kraken</option>
+            <option value="taverna-dell-ancora-spezzata">Taverna dell'Ancora Spezzata</option>
+            <option value="maledizione-dell-ordine-delle-anime">Maledizione dell'Ordine delle Anime</option>
+          </select>
+        </div>
+        
+        <div className="col-6 col-md-4 col-lg-3">
           <div className="input-group">
             <span className="input-group-text bg-dark border-secondary text-accent">
               <i className="bi bi-search"></i>
@@ -89,7 +112,7 @@ function ProductList() {
               placeholder="Cerca nel menù..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-            />
+            /> 
           </div>
         </div>
       </div>
