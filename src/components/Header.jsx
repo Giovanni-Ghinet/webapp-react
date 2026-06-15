@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { GiSailboat } from "react-icons/gi";
+import { GiSmallFishingSailboat } from "react-icons/gi";
 import { GiTreasureMap } from "react-icons/gi";
 import { GiOpenTreasureChest } from "react-icons/gi";
+
 function Header() {
 
 
@@ -24,15 +25,15 @@ function Header() {
                     </div>
                     <div className="collapse navbar-collapse" id="mainNav">
                         <ul className="navbar-nav ms-auto align-items-center">
-                            <GiSailboat />
+                            <GiSmallFishingSailboat size={50} className="color-icon" />
                             <li className="nav-item">
                                 <NavLink className="nav-link font-size font-instrument" to="/">Home </NavLink>
                             </li>
-                            <GiTreasureMap />
+                            <GiTreasureMap size={40} className="color-icon" />
                             <li className="nav-item">
                                 <NavLink className="nav-link font-size font-instrument" to="/products">Menù</NavLink>
                             </li>
-                            <GiOpenTreasureChest />
+                            <GiOpenTreasureChest size={40} className="color-icon" />
                             <li className="nav-item">
                                 <NavLink className="nav-link font-size font-instrument" to="/reviews">Recensioni</NavLink>
                             </li>
