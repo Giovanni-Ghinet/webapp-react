@@ -137,8 +137,8 @@ function ProductList() {
               </div>
             ) : (
               <div className="text-center py-5 w-100">
-                <h3 className="text-accent font-pirata display-5">Nessun prodotto trovato</h3>
-                <p className="text-secondary font-newsreader fs-4">Sembra che i mari siano vuoti... prova a cercare un altro bottino!</p>
+                <h3 className="title-color font-pirata display-5">Nessun prodotto trovato</h3>
+                <p className="subtitle-color font-newsreader fs-4">Sembra che i mari siano vuoti... prova a cercare un altro bottino!</p>
               </div>
             )}
           </div>
