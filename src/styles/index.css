@@ -343,8 +343,6 @@ body {
 .slider-btn {
   position: absolute;
   top: 50%;
-  left: 75%;
-  right: 75%;
   transform: translateY(-50%);
   z-index: 20;
   display: flex;
@@ -352,18 +350,29 @@ body {
   justify-content: center;
   background-color: transparent;
   border: none;
-  color: #000000;
-
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  /* Ombra per rendere visibile il nero su scuro */
-  font-size: 3rem;
-
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  /* Ombra per rendere visibile il nero su scuro */
   font-size: 3.5rem;
-
-  transition: all 0.2s ease;
+  /* La tua dimensione */
   cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+
+  /* Resettiamo i vecchi valori nocivi */
+  width: auto;
+  height: auto;
+}
+
+.btn-slider-prev {
+  left: 11%;
+  right: auto;
+}
+
+.btn-slider-next {
+  right: 11%;
+  left: auto;
+}
+
+
+.slider-btn:hover:not(:disabled) {
+  color: #2BE7A0 !important;
 }
 
 .slider-btn:hover:not(:disabled) {

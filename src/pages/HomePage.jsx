@@ -165,7 +165,7 @@ function HomePage() {
           <div className="slider-wrapper">
             <button
               type="button"
-              className="slider-btn start-0 text-accent "
+              className="slider-btn btn-slider-prev text-accent "
               onClick={prevSlide}
               disabled={currentIndex === 0 || products.length <= visibleItems}
             >
@@ -202,7 +202,7 @@ function HomePage() {
 
             <button
               type="button"
-              className="slider-btn end-0 text-accent"
+              className="slider-btn btn-slider-next text-accent"
               onClick={nextSlide}
               disabled={currentIndex >= products.length - visibleItems || products.length <= visibleItems}
             >
