@@ -8,7 +8,7 @@ function Footer() {
                         <ul className="list-unstyled">
                             <li><a className="footer-link" href="/">Home</a></li>
                             <li><a className="footer-link" href="/">Contatti</a></li>
-                            <li><a className="footer-link" href="/Review">Recensioni</a></li>
+                            <li><a className="footer-link" href="/Reviews">Recensioni</a></li>
                         </ul>
                         <h5 className="font-size font-instrument" > Contatti </h5>
                         <ul className="list-unstyled">
@@ -45,6 +45,3 @@ function Footer() {
 }
 
 export default Footer;
-
-
-

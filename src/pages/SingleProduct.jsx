@@ -69,16 +69,16 @@ function SingleProduct() {
 
         {/* Colonna Destra: Info Prodotto */}
         <div className="col-12 col-md-6">
-          <h1 className="display-4 fw-bold text-accent font-pirata mb-3">{product.name}</h1>
+          <h1 className="display-4 fw-bold font-pirata mb-3 title-color">{product.name}</h1>
           
           <div className="d-flex align-items-center gap-3 mb-4">
-            <span className="fs-2 fw-bold text-accent">{product.price} €</span>
+            <span className="fs-2 fw-bold subtitle-color">{product.price} €</span>
             <span className="badge star-button text-dark fs-6">
               ★ {averageRating} / 5.0
             </span>
           </div>
 
-          <p className="lead text-white mb-5">{product.description || "Una prelibatezza dei sette mari, preparata con ingredienti freschi e un pizzico di mistero piratesco."}</p>
+          <p className="lead subtitle-color mb-5">{product.description || "Una prelibatezza dei sette mari, preparata con ingredienti freschi e un pizzico di mistero piratesco."}</p>
           
           <button className="btn style-button btn-lg px-5 fw-bold">ORDINA ORA</button>
         </div>
@@ -93,6 +93,9 @@ function SingleProduct() {
               <div className="card h-100 bg-dark text-white border-secondary p-3 shadow-sm">
                 <div className="fw-bold text-accent mb-1">{review.title}</div>
                 <div className="small text-secondary mb-2">da {review.author}</div>
+                <div className="mb-2 fw-bold text-accent">
+                  {review.valutation} <small className="text-secondary">/ 5.0</small>
+                </div>
                 <p className="small mb-0 italic">"{review.text}"</p>
               </div>
             </div>
