@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { GiSailboat } from "react-icons/gi"; 
+import { GiSailboat } from "react-icons/gi";
 
 
 function ProductList() {
@@ -11,7 +11,7 @@ function ProductList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
-  
+
   // Stato per la ricerca ritardata (Debounce)
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
@@ -81,7 +81,7 @@ function ProductList() {
   // 2. Fetch dei prodotti (eseguito quando cambia la ricerca o la categoria selezionata)
   useEffect(() => {
     setLoading(true);
-    
+
     const params = new URLSearchParams();
     if (debouncedSearchTerm) params.append('search', debouncedSearchTerm);
     if (selectedCategory) params.append('slug', selectedCategory);
@@ -125,32 +125,32 @@ function ProductList() {
             ))}
           </select>
         </div>
-        
+
         <div className="col-12 col-sm-6 col-md-4 col-lg-3">
           <div className="input-group">
             <span className="input-group-text bg-dark border-secondary text-accent">
               <i className="bi bi-search"></i>
             </span>
-            <input 
-              type="text" 
-              className="form-control bg-dark text-white border-secondary shadow-none" 
-              placeholder="Cerca nel menù..." 
+            <input
+              type="text"
+              className="form-control bg-dark text-white border-secondary shadow-none"
+              placeholder="Cerca nel menù..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-            /> 
+            />
           </div>
         </div>
       </div>
-      
+
       {loading ? (
         <div className="text-center py-5 text-accent font-pirata fs-3">Preparando il bottino...</div>
       ) : error ? (
         <div className="alert alert-danger m-5 text-center">Errore: {error}</div>
       ) : (
         <div className="slider-wrapper">
-          <button 
+          <button
             type="button"
-            className="slider-btn start-0 text-accent " 
+            className="slider-btn start-0 text-accent "
             onClick={prevSlide}
             disabled={currentIndex === 0 || products.length <= visibleItems}
           >
@@ -159,8 +159,8 @@ function ProductList() {
 
           <div className="slider-container">
             {products.length > 0 ? (
-              <div 
-                className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 flex-nowrap mx-1 slider-track" 
+              <div
+                className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 flex-nowrap mx-1 slider-track"
                 style={{ transform: `translateX(-${currentIndex * (100 / visibleItems)}%)`, transition: 'transform 0.5s ease-in-out' }}
               >
                 {products.map(product => (
@@ -173,7 +173,7 @@ function ProductList() {
                           <p className="fs-3 mt-auto text-accent font-pirata">{product.price} €</p>
                         </div>
                       </div>
-                    </Link> 
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -185,13 +185,13 @@ function ProductList() {
             )}
           </div>
 
-          <button 
+          <button
             type="button"
-            className="slider-btn end-0 text-accent" 
+            className="slider-btn end-0 text-accent"
             onClick={nextSlide}
             disabled={currentIndex >= products.length - visibleItems || products.length <= visibleItems}
           >
-             <GiSailboat/>
+            <GiSailboat />
           </button>
         </div>
       )}
