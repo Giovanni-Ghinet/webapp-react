@@ -218,6 +218,7 @@ body {
   color: #2BE7A0 !important;
   /* Il nuovo colore verde acqua */
 }
+
 /*CHI SIAMO*/
 .subtitle-green {
   color: #2BE7A0;
@@ -238,7 +239,7 @@ body {
 .product-card {
   position: relative;
   overflow: hidden;
-  min-height: 400px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
 }
@@ -264,12 +265,12 @@ body {
 
 .product-img-custom {
   width: 100%;
-  height: 400px;
   min-height: 400px;
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
 }
+
 
 /* Media query per evitare il ritaglio delle immagini su schermi piccoli (mobile e tablet) */
 @media (max-width: 991px) {
@@ -292,7 +293,9 @@ body {
 
 .slider-container {
   overflow: hidden;
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
+
 }
 
 .slider-track {
@@ -335,6 +338,8 @@ body {
 .slider-btn {
   position: absolute;
   top: 50%;
+  left: 75%;
+  right: 75%;
   transform: translateY(-50%);
   z-index: 20;
   display: flex;

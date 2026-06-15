@@ -1,34 +1,65 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GiSailboat } from "react-icons/gi";
 
 function HomePage() {
-  const [latestProducts, setLatestProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleItems, setVisibleItems] = useState(3);
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/products?latest=5")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Errore nella richiesta: ${response.status}`);
-        }
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 768) setVisibleItems(1);
+      else if (width < 992) setVisibleItems(2);
+      else setVisibleItems(3);
+    };
 
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (currentIndex > Math.max(0, products.length - visibleItems)) {
+      setCurrentIndex(Math.max(0, products.length - visibleItems));
+    }
+  }, [visibleItems, products.length]);
+
+  const nextSlide = () => {
+    if (currentIndex < products.length - visibleItems) {
+      setCurrentIndex(prev => prev + 1);
+    }
+  };
+
+  const prevSlide = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(prev => prev - 1);
+    }
+  };
+
+
+  useEffect(() => {
+
+    const url = 'http://localhost:3000/products?latest=5';
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
         return response.json();
       })
-      .then((data) => {
-        if (!data.result) {
-          throw new Error("Prodotti non disponibili");
-        }
-        console.log(data.result[0]);
-        setLatestProducts(data.result);
+      .then(data => {
+        setProducts(data.result || []);
+        setCurrentIndex(0);
       })
-      .catch((error) => {
-        console.error(error);
-        setError(error.message);
+      .catch(err => {
+        setError(err.message);
       })
       .finally(() => {
-        setIsLoading(false);
+        setLoading(false);
       });
   }, []);
 
@@ -125,61 +156,60 @@ function HomePage() {
       {/* ULTIMI PRODOTTI */}
 
       <section className="py-3">
-        <div className="container">
-          <div className="row mb-3">
-            <div className="col-12 text-center">
-              <h2 className="fw-bold mb-2 title-color font-instrument">Ultimi piatti arrivati a bordo</h2>
-              <p className="lead mb-0 description-color font-instrument">Le ultime creazioni preparate dalla nostra ciurma</p>
-            </div>
-          </div>
 
-          <div className="row justify-content-center g-4">
-            {isLoading && (
-              <div className="col-12 text-center">
-                <p className="mb-0 text-v-color font-instrument">Caricamento degli ultimi piatti...</p>
-              </div>
-            )}
+        {loading ? (
+          <div className="text-center py-5 text-accent font-pirata fs-3">Preparando il bottino...</div>
+        ) : error ? (
+          <div className="alert alert-danger m-5 text-center">Errore: {error}</div>
+        ) : (
+          <div className="slider-wrapper">
+            <button
+              type="button"
+              className="slider-btn start-0 text-accent "
+              onClick={prevSlide}
+              disabled={currentIndex === 0 || products.length <= visibleItems}
+            >
+              <GiSailboat className="flip-horizontal" />
+            </button>
 
-            {error && (
-              <div className="col-12 text-center">
-                <p className="mb-0 text-v-color">Errore: {error}</p>
-              </div>
-            )}
-
-            {!isLoading && !error && latestProducts.length === 0 && (
-              <div className="col-12 text-center">
-                <p className="mb-0 text-v-color font-instrument">Nessun piatto disponibile</p>
-              </div>
-            )}
-
-            {!isLoading && !error && latestProducts.map((product) => (
-
-              <div
-                className="col-12 col-md-6 col-lg-4 d-flex"
-                key={product.id}
-              >
-                <Link
-                  to={`/products/${product.id}`}
-                  className="text-decoration-none text-white w-100"
+            <div className="slider-container">
+              {products.length > 0 ? (
+                <div
+                  className="slider-track"
+                  style={{ transform: `translateX(-${currentIndex * (100 / visibleItems)}%)`, transition: 'transform 0.5s ease-in-out' }}
                 >
-                  <article className="card w-100 shadow border-0 h-100 bg-dark text-white product-card">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="card-img-top product-img-custom-single"
-                    />
-
-                    <div className="card-body p-4 text-center d-flex flex-column principal-color font-instrument">
-                      <h3 className="card-title text-accent mb-0 font-pirata">
-                        {product.name}
-                      </h3>
+                  {products.map(product => (
+                    <div className="col slider-item p-2 d-flex" style={{ flex: `0 0 ${100 / visibleItems}%` }} key={product.id}>
+                      <Link to={`/products/${product.id}`} className="text-decoration-none text-white w-100 d-flex">
+                        <div className="card shadow border-0 bg-dark text-white product-card w-100 h-100">
+                          <img src={product.image} className="product-img-custom" alt={product.name} />
+                          <div className="card-body p-4 text-center d-flex flex-column">
+                            <h5 className="card-title text-accent mb-3 font-pirata">{product.name}</h5>
+                            <p className="fs-3 mt-auto text-accent font-pirata">{product.price} €</p>
+                          </div>
+                        </div>
+                      </Link>
                     </div>
-                  </article>
-                </Link>
-              </div>
-            ))}
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-5 w-100">
+                  <h3 className="text-accent font-pirata display-5">Nessun prodotto trovato</h3>
+                  <p className="text-secondary font-newsreader fs-4">Sembra che i mari siano vuoti... prova a cercare un altro bottino!</p>
+                </div>
+              )}
+            </div>
+
+            <button
+              type="button"
+              className="slider-btn end-0 text-accent"
+              onClick={nextSlide}
+              disabled={currentIndex >= products.length - visibleItems || products.length <= visibleItems}
+            >
+              <GiSailboat />
+            </button>
           </div>
-        </div>
+        )}
       </section>
     </main>
   );
