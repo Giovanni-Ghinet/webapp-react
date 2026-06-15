@@ -393,3 +393,31 @@ body {
 .flip-horizontal {
   transform: scaleX(-1);
 }
+
+
+.not-found-section {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+}
+
+.not-found-number {
+  font-size: clamp(5rem, 15vw, 10rem);
+  line-height: 1;
+}
+
+.not-found-image-wrapper {
+  padding: 0.75rem;
+  background-color: #212529;
+  border: 3px solid #2be7a0;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(43, 231, 160, 0.35);
+}
+
+.not-found-image {
+  width: 100%;
+  max-height: 650px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 0.6rem;
+}
