@@ -9,7 +9,7 @@ function ProductList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
-  
+
   // Stato per la ricerca ritardata (Debounce)
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
@@ -24,7 +24,7 @@ function ProductList() {
     };
   }, [searchTerm]);
 
-  
+
 
   // 1. Fetch delle categorie (eseguito solo una volta al montaggio del componente)
   useEffect(() => {
@@ -46,7 +46,7 @@ function ProductList() {
   // 2. Fetch dei prodotti (eseguito quando cambia la ricerca o la categoria selezionata)
   useEffect(() => {
     setLoading(true);
-    
+
     const params = new URLSearchParams();
     if (debouncedSearchTerm) params.append('search', debouncedSearchTerm);
     if (selectedCategory) params.append('slug', selectedCategory);
@@ -60,7 +60,7 @@ function ProductList() {
       })
       .then(data => {
         setProducts(data.result || []);
-        
+
       })
       .catch(err => {
         setError(err.message);
@@ -90,35 +90,49 @@ function ProductList() {
             ))}
           </select>
         </div>
-        
+
         <div className="col-12 col-sm-6 col-md-4 col-lg-3">
           <div className="input-group">
             <span className="input-group-text bg-dark border-secondary text-accent">
               <i className="bi bi-search"></i>
             </span>
-            <input 
-              type="text" 
-              className="form-control bg-dark text-white border-secondary shadow-none" 
-              placeholder="Cerca nel menù..." 
+            <input
+              type="text"
+              className="form-control bg-dark text-white border-secondary shadow-none"
+              placeholder="Cerca nel menù..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-            /> 
+            />
           </div>
         </div>
       </div>
-      
+      {/*Counter dei Prodotti */}     
+      {!loading && !error && (
+        <div className="row justify-content-end mb-4">
+          <div className="col-12 col-sm-6 col-md-4 col-lg-3">
+            <p className="description-color font-newsreader fw-bold text-center mb-0">
+              Bottino trovato:{" "}
+              <span className="title-color">
+                {products.length}
+              </span>{" "}
+              {products.length === 1 ? "piatto" : "piatti"}
+            </p>
+          </div>
+        </div>
+      )}
+
       {loading ? (
         <div className="text-center py-5 text-accent font-pirata fs-3">Preparando il bottino...</div>
       ) : error ? (
         <div className="alert alert-danger m-5 text-center">Errore: {error}</div>
       ) : (
         <div className="products-grid-container">
-          
+
           <div className="container">
             {products.length > 0 ? (
-              <div 
-                className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" 
-                
+              <div
+                className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4"
+
               >
                 {products.map(product => (
                   <div className="col d-flex" key={product.id}>
@@ -130,7 +144,7 @@ function ProductList() {
                           <p className="fs-3 mt-auto text-accent font-pirata">{product.price} €</p>
                         </div>
                       </div>
-                    </Link> 
+                    </Link>
                   </div>
                 ))}
               </div>
