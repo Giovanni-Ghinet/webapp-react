@@ -7,22 +7,25 @@ import Reviews from "./pages/Reviews";
 import SingleProduct from "./pages/SingleProduct";
 import ScrollToTop from "./components/ScrollToTop";
 import AboutPage from "./pages/AboutPage";
+import { NewsletterProvider } from "./contexts/NewsletterContext.jsx";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="products" element={<ProductsPage />} />
-          <Route path="products/:id" element={<SingleProduct />} />
-          <Route path="reviews" element={<Reviews />} />
-          <Route path="chi-siamo" element={<AboutPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <NewsletterProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="products" element={<ProductsPage />} />
+            <Route path="products/:id" element={<SingleProduct />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="chi-siamo" element={<AboutPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </NewsletterProvider>
   );
 }
 export default App;

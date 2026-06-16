@@ -21,6 +21,7 @@ function SingleProduct() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
   const fetchData = async () => {
@@ -126,6 +127,52 @@ function SingleProduct() {
           <div className="d-flex gap-3 mt-4">
             <button className="btn style-button font-instrument px-5 fw-bold">ORDINA ORA</button>
 
+          <button className="btn style-button btn-lg px-5 fw-bold">ORDINA ORA</button>
+          <div className="my-3">
+            <button
+              className="btn style-button btn-lg px-5 fw-bold submit-btn:hover" // Puoi cambiare le classi grafiche come preferisci
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? 'ANNULLA' : 'AGGIUNGI UNA RECENSIONE'}
+            </button>
+          </div>
+          <div className={`collapse ${isOpen ? 'show' : ''}`} style={{ transition: 'all 0.3s ease-out' }}>
+            <form onSubmit={submitHandler} className="mt-4 pe-5">
+              <div className="mb-2">
+                <label htmlFor="author" className="form-label title-color font-pirata fs-4">NOME</label>
+                <input type="text" className="form-control bg-dark text-white" id="author" name="author" value={reviewOBJ.author} onChange={changeHandler} required />
+              </div>
+              <div className="mb-2">
+                <label htmlFor="title" className="form-label title-color font-pirata fs-4">TITOLO</label>
+                <input type="text" className="form-control bg-dark text-white" id="title" name="title" value={reviewOBJ.title} onChange={changeHandler} required />
+              </div>
+              <div className="mb-2">
+                <label htmlFor="valutation" className="form-label title-color font-pirata fs-4 d-flex justify-content-between align-items-center">
+                  <span>VOTO</span>
+                  {/* Questo badge mostrerà il valore numerico in tempo reale */}
+                  <span className="badge  title-color fs-5">{reviewOBJ.valutation}</span>
+                </label><input
+                  type="range"
+                  className=" custom-range" // Sostituito 'form-control' con 'form-range' (ottimo se usi Bootstrap)
+                  id="valutation"
+                  name="valutation"
+                  min="0"
+                  max="5"
+                  step="0.5"
+                  value={reviewOBJ.valutation}
+                  onChange={changeHandler}
+                  required
+                />
+              </div>.
+              <div className="mb-2">
+                <label htmlFor="text" className="form-label title-color font-pirata fs-4">DESCRIZIONE</label>
+                <textarea className="form-control bg-dark text-white" id="text" rows="8" name="text" onChange={changeHandler} value={reviewOBJ.text} required></textarea>
+              </div>
+              <button className="btn style-button btn-lg px-5 fw-bold submit-btn:hover" type="submit">INVIA RECENSIONE</button>
+            </form>
+          </div>
             <button
               className="btn sabbia-color font-instrument px-5 fw-bold"
               onClick={() => setShowForm(!showForm)}
