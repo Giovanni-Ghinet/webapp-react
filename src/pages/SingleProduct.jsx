@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const blanckOBJ = {
-    title: "",
-    text: "",
-    author: "",
-    valutation: "",
-    product: ""
+  title: "",
+  text: "",
+  author: "",
+  valutation: 0,
+  product: ""
 };
 
 const URL_API_POST = "http://localhost:3000/reviews";
@@ -21,7 +21,7 @@ function SingleProduct() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   const fetchData = async () => {
     try {
       // Fetch del prodotto (che include già le sue recensioni)
@@ -46,9 +46,11 @@ function SingleProduct() {
 
   function changeHandler(event) {
     const { name, value, type } = event.target;
-    const tempOBJ = { ...reviewOBJ,
-      [name]: type === "number" ? Number(value): value,
-      product:product.name};
+    const tempOBJ = {
+      ...reviewOBJ,
+      [name]: type === "number" ? Number(value) : value,
+      product: product.name
+    };
     console.log(tempOBJ);
     setReviewOBJ(tempOBJ);
   }
@@ -132,9 +134,23 @@ function SingleProduct() {
               <input type="text" className="form-control bg-dark text-white" id="title" name="title" value={reviewOBJ.title} onChange={changeHandler} required />
             </div>
             <div className="mb-2">
-              <label htmlFor="valutation" className="form-label title-color font-pirata fs-4">VOTO</label>
-              <input type="number" className="form-control bg-dark text-white" id="valutation" name="valutation" value={reviewOBJ.latest} onChange={changeHandler} required />
-            </div>
+              <label htmlFor="valutation" className="form-label title-color font-pirata fs-4 d-flex justify-content-between align-items-center">
+                <span>VOTO</span>
+                {/* Questo badge mostrerà il valore numerico in tempo reale */}
+                <span className="badge  title-color fs-5">{reviewOBJ.valutation}</span>
+              </label><input
+                type="range"
+                className=" custom-range" // Sostituito 'form-control' con 'form-range' (ottimo se usi Bootstrap)
+                id="valutation"
+                name="valutation"
+                min="0"
+                max="5"
+                step="0.5"
+                value={reviewOBJ.valutation}
+                onChange={changeHandler}
+                required
+              />
+            </div>.
             <div className="mb-2">
               <label htmlFor="text" className="form-label title-color font-pirata fs-4">DESCRIZIONE</label>
               <textarea className="form-control bg-dark text-white" id="text" rows="8" name="text" onChange={changeHandler} value={reviewOBJ.text} required></textarea>

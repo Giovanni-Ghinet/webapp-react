@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { GiSailboat } from "react-icons/gi"; 
 
 
 function ProductList() {

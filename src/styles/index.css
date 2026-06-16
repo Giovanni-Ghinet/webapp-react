@@ -19,6 +19,57 @@ body {
   min-height: 100vh;
 }
 
+
+/* Rimuove lo stile predefinito del browser */
+.custom-range {
+  -webkit-appearance: none; /* Rimuove lo stile nativo del browser */
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  
+  /* AGGIUNGI QUESTE TRE RIGHE */
+  background: #000000 !important;      /* Forza il colore nero */
+  background-image: none !important;    /* Rimuove eventuali sfumature di Bootstrap */
+  border: none !important;              /* Rimuove bordi residui */
+  
+  border-radius: 5px;
+  outline: none;
+}
+/* --- STILE DEL PALLINO (THUMB) --- */
+
+/* Per Chrome, Safari, Edge e Opera */
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffc107; /* Pallino Giallo */
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+}
+
+.custom-range::-webkit-slider-thumb:active {
+  background: #ffca28; /* Giallo più chiaro quando viene trascinato */
+}
+
+/* Per Firefox */
+.custom-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: #ffc107; /* Pallino Giallo */
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+}
+
+.custom-range::-moz-range-thumb:active {
+  background: #ffca28;
+}
+
+
+
 /*================FONT===============*/
 .font-pirata {
   font-family: "Pirata One", system-ui, sans-serif;
