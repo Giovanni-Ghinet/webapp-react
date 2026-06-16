@@ -536,3 +536,27 @@ body {
   border-radius: 0.6rem;
 
 }
+
+
+.card-recensione {
+  /* Usiamo rgba per creare uno sfondo scuro trasparente al 85% */
+  background-color: rgba(30, 30, 30, 0.85) !important;
+  /* Il backdrop-filter sfoca ciò che sta dietro la card, creando un effetto vetro */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  /* Un sottile bordo verde acqua parzialmente trasparente per dare stacco */
+  border: 1px solid rgba(43, 231, 160, 0.2) !important;
+  /* Transizione fluida per l'effetto movimento al passaggio del mouse */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effetto di sollevamento quando l'utente passa il mouse sopra la recensione */
+.card-recensione:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(43, 231, 160, 0.15) !important;
+}
+
+/* Spaziatura aumentata per i piccoli testi descrittivi come PIATTO e AUTORE */
+.spaziatura-lettere {
+  letter-spacing: 0.12em;
+}
