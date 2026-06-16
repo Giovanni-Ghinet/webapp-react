@@ -30,32 +30,35 @@ function Reviews() {
     if (error) return <div className="alert alert-danger m-5 text-center">Errore: {error}</div>;
 
     return (
-        <div className="container py-3">
+     <div className="container py-3">
             <h1 className="pb-4 text-center fw-bold review-color font-pirata">Recensioni</h1>
             <div className="row justify-content-center">
                 <div className="col-12 col-lg-10">
                     {reviews.map(review => (
-                        <div key={review.id} className="card bg-dark text-white mb-4 shadow border-0 overflow-hidden">
+                        <div key={review.id} className="card text-white mb-4 shadow border-0 overflow-hidden card-recensione">
                             <div className="row g-0">
-                                {/* Lato Sinistro: Nome del piatto e Autore */}
                                 <div className="col-md-4 bg-secondary bg-opacity-10 d-flex flex-column justify-content-center align-items-center p-4 text-center border-end border-secondary">
-                                    <h6 className="text-uppercase small mb-1 text-secondary">Piatto</h6>
-                                    <h5 className="fw-bold text-accent mb-3">{review.product_name}</h5>
+                                    <span className="text-uppercase small mb-1 text-secondary font-instrument spaziatura-lettere">Piatto</span>
+                                    <h5 className="fw-bold text-accent mb-3 font-instrument fs-4">{review.product_name}</h5>
+                                    
                                     <div className="mt-2">
-                                        <span className="text-secondary small">Autore</span>
-                                        <p className="mb-0 fw-semibold">{review.author}</p>
+                                        <span className="text-secondary small font-instrument spaziatura-lettere">Autore</span>
+                                        <p className="mb-0 fw-semibold font-newsreader text-white-50">{review.author}</p>
+                                    </div>
+                                        <div className="mt-2">
+                                        <span className="text-secondary small font-instrument spaziatura-lettere">Data</span>
+                                        <p className="mb-0 fw-semibold font-newsreader text-white-50">{review.date}</p>
                                     </div>
                                 </div>
-                                {/* Lato Destro: Titolo, Valutazione e Testo */}
                                 <div className="col-md-8">
-                                    <div className="card-body p-4">
+                                    <div className="card-body p-4 d-flex flex-column h-100 justify-content-center">
                                         <div className="d-flex justify-content-between align-items-center mb-2">
-                                            <h5 className="card-title fw-bold text-accent mb-0">{review.title}</h5>
-                                            <span className="fs-5 fw-bold text-accent">
-                                                {review.valutation} <small className="text-secondary">/ 5.0</small>
+                                            <h5 className="card-title fw-bold text-accent mb-0 font-instrument fs-4">{review.title}</h5>
+                                            <span className="fs-5 fw-bold title-color font-instrument">
+                                                {review.valutation} <small className="text-secondary fs-6">/ 5.0</small>
                                             </span>
                                         </div>
-                                        <p className="card-text mt-3">{review.text}</p>
+                                        <p className="card-text mt-3 font-newsreader description-color fs-5 lh-base">{review.text}</p>
                                     </div>
                                 </div>
                             </div>

@@ -545,6 +545,24 @@ body {
 
 }
 
+/*EFFETTO PAGINA RECENSIONI*/
+.card-recensione {
+
+  background-color: rgba(30, 30, 30, 0.85) !important;
+  /* Il backdrop-filter sfoca ciò che sta dietro la card, creando un effetto vetro */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(43, 231, 160, 0.2) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-recensione:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(43, 231, 160, 0.15) !important;
+}
+
+.spaziatura-lettere {
+  letter-spacing: 0.12em;
 /* STILE POPUP */
 
 /* Sfondo scuro semi-trasparente che copre tutto il sito */
